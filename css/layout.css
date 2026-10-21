@@ -1,4 +1,57 @@
-/* Layout, header, nav, footer, scroll shell (UI/UX owns this file) */
-.skip-link { position: absolute; left: -999px; }
-.skip-link:focus { left: var(--space-4); top: var(--space-4); }
+/* Layout, header, nav, footer, scroll shell (UI/UX owns this file). Mobile first, text only. */
+.skip-link {
+  position: absolute; left: var(--space-4); top: -4rem; z-index: 20;
+  padding: 0.5rem var(--space-4); background: var(--color-primary); color: #fff;
+  text-decoration: none; font-weight: 600; border-radius: 4px;
+}
+.skip-link:focus { top: 0.5rem; outline: 3px solid var(--color-text); outline-offset: 2px; }
+
+:where(a, button):focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+
+.site-header {
+  padding: 0.75rem var(--space-4);
+  background: var(--color-bg); border-bottom: 1px solid var(--color-text);
+}
+.brand {
+  display: inline-block; padding: 0.25rem 0; font-family: var(--font-heading);
+  font-size: 1.25rem; font-weight: 700; color: var(--color-text); text-decoration: none;
+}
+.nav-list {
+  display: flex; flex-wrap: wrap; gap: 0 0.25rem; margin: 0.25rem 0 0; padding: 0; list-style: none;
+}
+.nav-list a {
+  display: block; min-height: 2.75rem; padding: 0.5rem 0.625rem; line-height: 1.75rem;
+  font-size: 0.9375rem; color: var(--color-text); text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+.nav-list a:hover { color: var(--color-primary); border-bottom-color: currentColor; }
+.nav-list a[aria-current="true"] { color: var(--color-primary); font-weight: 700; border-bottom-color: var(--color-primary); }
+
+/* Reading position, announced politely and shown as text (filled in by nav.js) */
+.chapter-status { margin: 0.25rem 0 0; font-size: 0.875rem; }
+
 main { max-width: 42rem; margin: 0 auto; padding: 0 var(--space-4); }
+.chapter { scroll-margin-top: var(--space-4); }
+main p, main li { font-size: 1.0625rem; overflow-wrap: break-word; }
+.lead { font-size: 1.25rem; }
+#hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
+#hero h1 { font-size: clamp(2.25rem, 8vw, 4rem); line-height: 1.1; margin: 0 0 var(--space-4); }
+.compare-table { display: block; overflow-x: auto; }
+
+.site-footer {
+  margin-top: var(--space-6); padding: var(--space-6) var(--space-4); text-align: center;
+  border-top: 1px solid var(--color-text); font-size: 0.875rem;
+}
+.site-footer p { margin: 0; }
+
+@media (min-width: 64rem) {
+  .site-header {
+    position: sticky; top: 0; z-index: 10; display: flex; align-items: center;
+    justify-content: space-between; gap: var(--space-6); padding: 0.5rem var(--space-6);
+  }
+  .nav-list { margin: 0; justify-content: flex-end; }
+  .chapter { scroll-margin-top: 5rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
