@@ -7,7 +7,7 @@ h2 { font-size: var(--text-3xl); }
 h3 { font-family: var(--font-mono); font-size: var(--text-lg); color: var(--color-accent); text-shadow: var(--glow-accent); text-transform: none; letter-spacing: 0; line-height: 1.3; margin: var(--space-6) 0 var(--space-2); }
 strong { color: var(--color-primary); }
 a { color: var(--color-primary); }
-a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+a:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
 .chapter { padding: var(--space-7) 0; }
 .compare-table { border-collapse: collapse; width: 100%; }
 .compare-table caption { text-align: left; font-weight: 600; padding-bottom: 0.5rem; }
