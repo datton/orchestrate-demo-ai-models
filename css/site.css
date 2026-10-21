@@ -4,3 +4,7 @@ h1, h2, h3 { font-family: var(--font-heading); }
 a { color: var(--color-primary); }
 a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
 .chapter { padding: var(--space-6) 0; }
+.compare-table { border-collapse: collapse; width: 100%; }
+.compare-table caption { text-align: left; font-weight: 600; padding-bottom: 0.5rem; }
+.compare-table th, .compare-table td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid currentColor; vertical-align: top; }
+@media (max-width: 40rem) { .compare-table { font-size: 0.9rem; } }
