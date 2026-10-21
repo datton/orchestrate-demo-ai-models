@@ -1,46 +1,43 @@
 /* Layout, header, nav, footer, scroll shell (UI/UX owns this file). Mobile first, text only. */
 .skip-link {
   position: absolute; left: var(--space-4); top: -4rem; z-index: 20;
-  padding: 0.5rem var(--space-4); background: var(--color-primary); color: #fff;
+  padding: var(--space-2) var(--space-4); background: var(--color-primary); color: var(--color-on-primary);
   text-decoration: none; font-weight: 600; border-radius: 4px;
 }
-.skip-link:focus { top: 0.5rem; outline: 3px solid var(--color-text); outline-offset: 2px; }
+.skip-link:focus { top: 0.5rem; outline: 3px solid var(--color-focus); outline-offset: 2px; }
 
-:where(a, button):focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+:where(a, button):focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
 
 .site-header {
   padding: 0.75rem var(--space-4);
-  background: var(--color-bg); border-bottom: 1px solid var(--color-text);
+  background: var(--color-surface); border-bottom: 1px solid var(--color-border);
 }
 .brand {
   display: inline-block; padding: 0.25rem 0; font-family: var(--font-heading);
-  font-size: 1.25rem; font-weight: 700; color: var(--color-text); text-decoration: none;
+  font-size: var(--text-lg); font-weight: var(--weight-heading); color: var(--color-text); text-decoration: none;
 }
 .nav-list {
   display: flex; flex-wrap: wrap; gap: 0 0.25rem; margin: 0.25rem 0 0; padding: 0; list-style: none;
 }
 .nav-list a {
   display: block; min-height: 2.75rem; padding: 0.5rem 0.625rem; line-height: 1.75rem;
-  font-size: 0.9375rem; color: var(--color-text); text-decoration: none;
+  font-size: var(--text-sm); color: var(--color-text); text-decoration: none;
   border-bottom: 3px solid transparent;
 }
 .nav-list a:hover { color: var(--color-primary); border-bottom-color: currentColor; }
 .nav-list a[aria-current="true"] { color: var(--color-primary); font-weight: 700; border-bottom-color: var(--color-primary); }
 
-/* Reading position, announced politely and shown as text (filled in by nav.js) */
-.chapter-status { margin: 0.25rem 0 0; font-size: 0.875rem; }
-
-main { max-width: 42rem; margin: 0 auto; padding: 0 var(--space-4); }
+main { max-width: var(--measure); margin: 0 auto; padding: 0 var(--space-4); }
 .chapter { scroll-margin-top: var(--space-4); }
-main p, main li { font-size: 1.0625rem; overflow-wrap: break-word; }
-.lead { font-size: 1.25rem; }
+main p, main li { font-size: var(--text-base); overflow-wrap: break-word; }
+.lead { font-size: var(--text-lg); }
 #hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
-#hero h1 { font-size: clamp(2.25rem, 8vw, 4rem); line-height: 1.1; margin: 0 0 var(--space-4); }
+#hero h1 { font-size: var(--text-3xl); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); margin: 0 0 var(--space-4); }
 .compare-table { display: block; overflow-x: auto; }
 
 .site-footer {
   margin-top: var(--space-6); padding: var(--space-6) var(--space-4); text-align: center;
-  border-top: 1px solid var(--color-text); font-size: 0.875rem;
+  border-top: 1px solid var(--color-border); background: var(--color-surface); font-size: var(--text-sm);
 }
 .site-footer p { margin: 0; }
 
