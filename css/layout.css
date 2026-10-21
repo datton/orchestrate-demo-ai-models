@@ -1,0 +1,4 @@
+/* Layout, header, nav, footer, scroll shell (UI/UX owns this file) */
+.skip-link { position: absolute; left: -999px; }
+.skip-link:focus { left: var(--space-4); top: var(--space-4); }
+main { max-width: 42rem; margin: 0 auto; padding: 0 var(--space-4); }

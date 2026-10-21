@@ -1,0 +1,11 @@
+/* Design tokens (Designer owns this file): typography and colour only */
+:root {
+  --color-bg: #fbfaf7;
+  --color-text: #1f1b16;
+  --color-primary: #1d4ed8;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --leading-body: 1.7;
+  --space-4: 1rem;
+  --space-6: 2rem;
+}

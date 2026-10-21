@@ -1,0 +1,6 @@
+/* Base look (Lead Developer owns this file). Typography and CSS only: no images or graphics. */
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); line-height: var(--leading-body); }
+h1, h2, h3 { font-family: var(--font-heading); }
+a { color: var(--color-primary); }
+a:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+.chapter { padding: var(--space-6) 0; }
