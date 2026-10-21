@@ -29,35 +29,90 @@
   <main id="main">
     <section id="hero" class="chapter" aria-labelledby="hero-title">
       <h1 id="hero-title">AI models, explained</h1>
-      <!-- Full-Stack: chapter text -->
+      <p class="lead">A short story about the main kinds of artificial intelligence model, how each one learns, and what each one is good at.</p>
+      <p>Scroll down to read the chapters in order, or use the menu to jump to any of them.</p>
     </section>
     <section id="what-is-a-model" class="chapter" aria-labelledby="what-is-a-model-title">
       <h2 id="what-is-a-model-title">What is an AI model?</h2>
-      <!-- Full-Stack: chapter text -->
+      <p>An AI model is a program that has learned patterns from examples instead of being given step-by-step rules. Show it enough examples and it can make a useful guess about something it has not seen before.</p>
+      <h3>Training and using</h3>
+      <p>A model is built in two stages. In <strong>training</strong>, it looks at a large collection of examples and adjusts a very large set of numbers, called <strong>parameters</strong>, until its guesses get better. In <strong>inference</strong>, the finished model uses those numbers to answer new questions.</p>
+      <h3>Why there are different kinds</h3>
+      <p>Different jobs need different designs. Writing a paragraph, painting a picture and spotting a spam email are different problems, so researchers have built different families of model for them. The next chapters walk through the most important ones.</p>
     </section>
     <section id="llms" class="chapter" aria-labelledby="llms-title">
       <h2 id="llms-title">Large language models</h2>
-      <!-- Full-Stack: chapter text -->
+      <p>A large language model, or LLM, is trained on a huge amount of text to predict what comes next. Given some words, it works out which word, or piece of a word, is likely to follow. Repeating that step one piece at a time produces whole sentences and pages.</p>
+      <h3>How it works</h3>
+      <p>Most modern LLMs use a design called the <strong>transformer</strong>, introduced in a 2017 research paper titled &ldquo;Attention Is All You Need.&rdquo; Its key idea, <strong>attention</strong>, lets the model weigh how much each earlier word matters when it picks the next one. Text is first split into small units called <strong>tokens</strong>.</p>
+      <h3>What they are good at</h3>
+      <ul>
+        <li>Writing, summarising and translating text</li>
+        <li>Answering questions and explaining ideas</li>
+        <li>Helping to write and read computer code</li>
+      </ul>
+      <h3>Things to keep in mind</h3>
+      <p>An LLM can sound confident and still be wrong. It predicts likely text, so it is worth checking facts that matter.</p>
     </section>
     <section id="diffusion" class="chapter" aria-labelledby="diffusion-title">
       <h2 id="diffusion-title">Diffusion models</h2>
-      <!-- Full-Stack: chapter text -->
+      <p>A diffusion model creates new content by starting from random noise and removing the noise, a little at a time, until something clear appears. Diffusion models are widely used to generate images, and the idea has also been applied to audio and video.</p>
+      <h3>How it learns</h3>
+      <p>During training, the model is shown real examples that have had noise added to them in many small steps. It learns to undo that damage one step at a time. To make something new, it runs the same process starting from pure noise.</p>
+      <h3>Following a prompt</h3>
+      <p>Many diffusion models can be steered by a written description. The text is turned into numbers that guide each denoising step toward what was asked for.</p>
     </section>
     <section id="gans-vaes" class="chapter" aria-labelledby="gans-vaes-title">
       <h2 id="gans-vaes-title">GANs and VAEs</h2>
-      <!-- Full-Stack: chapter text -->
+      <p>Before diffusion models became popular, two other families were common for generating images and other data: generative adversarial networks and variational autoencoders.</p>
+      <h3>Generative adversarial networks (GANs)</h3>
+      <p>A GAN, introduced in 2014, trains two networks against each other. The <strong>generator</strong> tries to make convincing fakes. The <strong>discriminator</strong> tries to tell fakes from real examples. Each improves by competing with the other, until the generator&rsquo;s output is hard to tell from the real thing.</p>
+      <h3>Variational autoencoders (VAEs)</h3>
+      <p>A VAE has two halves. An <strong>encoder</strong> squeezes an example down into a short list of numbers, and a <strong>decoder</strong> rebuilds the example from that list. Once trained, you can choose new numbers and let the decoder create something new that resembles the training data.</p>
+      <h3>The trade-off</h3>
+      <p>GANs are known for sharp results but can be tricky to train. VAEs tend to train more smoothly but can produce softer, blurrier results.</p>
     </section>
     <section id="other-types" class="chapter" aria-labelledby="other-types-title">
       <h2 id="other-types-title">Other kinds of model</h2>
-      <!-- Full-Stack: chapter text -->
+      <p>Generating text and pictures is only part of the picture. Many other models are built to recognise, sort or predict.</p>
+      <h3>Classification and prediction models</h3>
+      <p>These take an input and give back a label or a number: whether an email is spam, which category a document belongs to, or an estimate of tomorrow&rsquo;s demand.</p>
+      <h3>Convolutional neural networks</h3>
+      <p>Convolutional networks are designed for images. They scan for simple patterns such as edges and build up to complex ones, and are widely used for recognising what is in a photo.</p>
+      <h3>Recommendation models</h3>
+      <p>These suggest items a person might like, based on patterns in what many people have chosen.</p>
+      <h3>Reinforcement learning</h3>
+      <p>A reinforcement learning system learns by trial and error. It takes actions, receives rewards or penalties, and gradually learns which actions pay off. It has been used to train game-playing programs and to control robots.</p>
     </section>
     <section id="compare" class="chapter" aria-labelledby="compare-title">
       <h2 id="compare-title">How they compare</h2>
-      <!-- Full-Stack: chapter text -->
+      <p>Here are the families from the earlier chapters side by side.</p>
+      <table class="compare-table">
+        <caption>Main model families compared</caption>
+        <thead>
+          <tr><th scope="col">Family</th><th scope="col">Typical output</th><th scope="col">Core idea</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Large language model</th><td>Text, code</td><td>Predict the next token</td></tr>
+          <tr><th scope="row">Diffusion model</th><td>Images, audio, video</td><td>Remove noise step by step</td></tr>
+          <tr><th scope="row">GAN</th><td>Images and other data</td><td>A generator competes with a discriminator</td></tr>
+          <tr><th scope="row">VAE</th><td>Images and other data</td><td>Encode to numbers, then decode</td></tr>
+          <tr><th scope="row">Classifier or predictor</th><td>A label or a number</td><td>Learn patterns that map input to answer</td></tr>
+        </tbody>
+      </table>
+      <h3>Choosing between them</h3>
+      <p>The best model depends on the job. Start from what you need as output, and the right family usually becomes clear. Real products often combine several kinds.</p>
     </section>
     <section id="closing" class="chapter" aria-labelledby="closing-title">
       <h2 id="closing-title">Closing</h2>
-      <!-- Full-Stack: chapter text -->
+      <p>AI models are tools that learn patterns from examples. Language models predict words, diffusion models clear away noise, GANs and VAEs learn to generate by different routes, and many other models recognise and predict.</p>
+      <h3>Three things to remember</h3>
+      <ol>
+        <li>A model is only as good as the examples it learned from.</li>
+        <li>Different jobs call for different kinds of model.</li>
+        <li>Fluent output is not the same as correct output, so check what matters.</li>
+      </ol>
+      <p>Thanks for reading. Scroll back up to revisit any chapter.</p>
     </section>
   </main>
 
