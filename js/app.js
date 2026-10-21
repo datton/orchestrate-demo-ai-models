@@ -8,6 +8,11 @@
 
   var EASE = 'cubic-bezier(0.16, 1, 0.3, 1)';
 
+  // Glow colours come from the designer's tokens (css/tokens.css).
+  var cs = getComputedStyle(document.documentElement);
+  var GLOW_A = cs.getPropertyValue('--glow-primary').trim() || '0 0 8px #22e1ff';
+  var GLOW_B = cs.getPropertyValue('--glow-accent').trim() || '0 0 8px #ff4fb0';
+
   // Wrap each word of a heading in a span (spaces stay as plain text, so the
   // heading still reads normally to assistive technology).
   function splitWords(el) {
@@ -34,10 +39,12 @@
       ], { duration: 900, delay: delay + i * 140, easing: EASE, fill: 'backwards' });
     });
     h.animate([
-      { textShadow: '0 0 0 rgba(0,255,255,0)' },
-      { textShadow: '0 0 28px rgba(0,255,255,0.9), 0 0 60px rgba(255,0,170,0.6)', offset: 0.45 },
-      { textShadow: '0 0 0 rgba(0,255,255,0)' }
+      { textShadow: 'none' },
+      { textShadow: GLOW_B + ', ' + GLOW_A, offset: 0.45 },
+      { textShadow: GLOW_A }
     ], { duration: 1600, delay: delay + 300, easing: 'ease-in-out' });
+    // Hand over to the designer's looping neon pulse once the entrance is done.
+    setTimeout(function () { h.classList.add('fx-neon'); }, delay + 1900);
   }
 
   // Body blocks: fly up from far below with a skew, fade and de-blur, staggered.
@@ -75,6 +82,7 @@
   // Main title: wide letter-spacing that tightens as it fades in.
   var h1 = document.getElementById('hero-title');
   if (h1) {
+    setTimeout(function () { h1.classList.add('fx-glitch'); }, 2500);
     h1.animate([
       { letterSpacing: '0.35em', opacity: 0.2 },
       { letterSpacing: 'normal', opacity: 1 }
