@@ -72,7 +72,7 @@
 
   document.querySelectorAll('main .chapter:not(#hero)').forEach(function (c) { observer.observe(c); });
 
-  // Scroll progress: the page title letter-spaces slightly as you move down the page.
+  // Main title: wide letter-spacing that tightens as it fades in.
   var h1 = document.getElementById('hero-title');
   if (h1) {
     h1.animate([
