@@ -33,7 +33,7 @@ main p, main li { font-size: var(--text-base); overflow-wrap: break-word; }
 .lead { font-size: var(--text-lg); }
 #hero { min-height: 60vh; display: flex; flex-direction: column; justify-content: center; }
 #hero h1 { font-size: var(--text-3xl); line-height: var(--leading-heading); letter-spacing: var(--tracking-heading); margin: 0 0 var(--space-4); }
-.compare-table { display: block; overflow-x: auto; }
+.table-scroll { overflow-x: auto; }
 
 .site-footer {
   margin-top: var(--space-6); padding: var(--space-6) var(--space-4); text-align: center;
