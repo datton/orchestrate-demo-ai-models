@@ -6,6 +6,9 @@
 }
 .skip-link:focus { top: 0.5rem; outline: 3px solid var(--color-focus); outline-offset: 2px; }
 
+/* Entrance animations translate text sideways; clip (not hidden) keeps the sticky header working. */
+html, body { overflow-x: clip; }
+
 :where(a, button):focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
 
 .site-header {
