@@ -1,37 +1,44 @@
-/* Design tokens (Designer owns this file): typography and colour only.
-   Direction: editorial and type-led. Paper-white page, ink text, one electric
-   blue accent. Big serif headings, calm sans body. No images or icons.
-   Contrast: text on bg 16:1, muted on bg 7.4:1, primary on bg 6.6:1,
-   white on primary 7:1, text on surface 15:1. */
+/* Design tokens (Designer owns this file): typography, colour and motion only.
+   Direction: dark cyberpunk, still text only. Near-black blue page, cyan primary,
+   magenta accent, glowing text-shadow. Huge section headers, monospace labels.
+   Contrast (approx.): text on bg 16:1, muted on bg 8:1, cyan on bg 12:1,
+   magenta on bg 6:1, magenta on surface 5.3:1, on-primary on cyan 11:1. */
 :root {
   /* Colour */
-  --color-bg: #fbfaf7;
-  --color-surface: #f1eee6;
-  --color-text: #1f1b16;
-  --color-text-muted: #55504a;
-  --color-primary: #1d4ed8;
-  --color-primary-hover: #1639a3;
-  --color-on-primary: #ffffff;
-  --color-border: #d6d1c4;
-  --color-focus: #b45309;
+  --color-bg: #080913;
+  --color-surface: #11132a;
+  --color-text: #e8ecff;
+  --color-text-muted: #a3abd1;
+  --color-primary: #22e1ff;
+  --color-primary-hover: #7df0ff;
+  --color-on-primary: #04121a;
+  --color-accent: #ff4fb0;
+  --color-border: #34397a;
+  --color-focus: #ffe14d;
+
+  /* Glow effects */
+  --glow-primary: 0 0 8px rgba(34, 225, 255, 0.7), 0 0 24px rgba(34, 225, 255, 0.4);
+  --glow-accent: 0 0 8px rgba(255, 79, 176, 0.7), 0 0 24px rgba(255, 79, 176, 0.4);
+  --glow-box: 0 0 0 1px var(--color-border), 0 0 20px rgba(34, 225, 255, 0.25);
 
   /* Fonts: system only */
   --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-heading: Georgia, "Times New Roman", serif;
+  --font-heading: Impact, "Arial Narrow Bold", "Haettenschweiler", "Arial Black", sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
-  /* Type scale (fluid, large headings) */
+  /* Type scale: much bigger section headers */
   --text-sm: 0.875rem;
   --text-base: 1.125rem;
   --text-lg: 1.375rem;
-  --text-xl: clamp(1.625rem, 3vw, 2rem);
-  --text-2xl: clamp(2rem, 5vw, 3rem);
-  --text-3xl: clamp(2.75rem, 8vw, 5rem);
-  --text-4xl: clamp(3.5rem, 12vw, 8rem);
+  --text-xl: clamp(1.75rem, 3.5vw, 2.25rem);
+  --text-2xl: clamp(2.5rem, 7vw, 4.5rem);
+  --text-3xl: clamp(3.5rem, 12vw, 8rem);      /* section headers */
+  --text-4xl: clamp(4.5rem, 18vw, 13rem);     /* hero */
   --leading-body: 1.7;
-  --leading-heading: 1.05;
-  --tracking-heading: -0.02em;
-  --weight-heading: 700;
+  --leading-heading: 0.95;
+  --tracking-heading: 0.01em;
+  --weight-heading: 400;
+  --heading-transform: uppercase;
   --measure: 66ch;
 
   /* Spacing */
@@ -43,4 +50,39 @@
   --space-6: 2rem;
   --space-7: 4rem;
   --space-8: 7rem;
+
+  /* Motion: pronounced. Use these for transition/animation. */
+  --motion-fast: 180ms;
+  --motion-base: 600ms;
+  --motion-slow: 1400ms;
+  --motion-ease: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --motion-distance: 4rem;     /* reveal slide-in offset */
+  --motion-scale: 0.85;        /* reveal start scale */
+}
+
+/* Reduced motion: every duration collapses and no offsets apply. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0.01ms;
+    --motion-base: 0.01ms;
+    --motion-slow: 0.01ms;
+    --motion-distance: 0;
+    --motion-scale: 1;
+  }
+}
+
+/* Ready-made effects (opt in with a class) */
+@keyframes neon-pulse {
+  0%, 100% { text-shadow: var(--glow-primary); }
+  50% { text-shadow: 0 0 2px rgba(34, 225, 255, 0.9), 0 0 40px rgba(34, 225, 255, 0.8), 0 0 80px rgba(34, 225, 255, 0.4); }
+}
+@keyframes glitch {
+  0%, 92%, 100% { transform: none; text-shadow: var(--glow-primary); }
+  93% { transform: translate(-0.04em, 0.02em); text-shadow: 0.05em 0 var(--color-accent), -0.05em 0 var(--color-primary); }
+  96% { transform: translate(0.04em, -0.02em); text-shadow: -0.05em 0 var(--color-accent), 0.05em 0 var(--color-primary); }
+}
+.fx-neon { text-shadow: var(--glow-primary); animation: neon-pulse calc(var(--motion-slow) * 2.5) ease-in-out infinite; }
+.fx-glitch { animation: glitch 5s steps(1) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .fx-neon, .fx-glitch { animation: none; }
 }
